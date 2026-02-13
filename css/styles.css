@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">/* ======================================================================</span></p>
+<p class="p1"><span class="s1">   VAIRA Advisory – Stylesheet</span></p>
+<p class="p1"><span class="s1">   Structure-aware styles for:</span></p>
+<p class="p1"><span class="s1">   - Header</span></p>
+<p class="p1"><span class="s1">   - Hero (split: text + technical visual with lattice/CAD toggle)</span></p>
+<p class="p1"><span class="s1">   - Sections (What We Do, About, Areas of Focus)</span></p>
+<p class="p1"><span class="s1">   - CTA band, Footer</span></p>
+<p class="p1"><span class="s1">   - Responsive &amp; accessibility niceties</span></p>
+<p class="p1"><span class="s1">   ====================================================================== */</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   1) CSS VARIABLES (Design tokens)</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">:root {</span></p>
+<p class="p1"><span class="s1">  --teal:   #0A6064;</span></p>
+<p class="p1"><span class="s1">  --grid:   #0D6F73;</span></p>
+<p class="p1"><span class="s1">  --ink:    #0C1A1C;</span></p>
+<p class="p1"><span class="s1">  --muted:  #6E7A82;</span></p>
+<p class="p1"><span class="s1">  --accent: #B8D4D0;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">  --bg: #ffffff;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">  /* Type scale &amp; rhythm */</span></p>
+<p class="p1"><span class="s1">  --h1-max: 46px;       /* Hero title max size */</span></p>
+<p class="p1"><span class="s1">  --h1-min: 34px;       /* Hero title min size */</span></p>
+<p class="p1"><span class="s1">  --h2: 28px;</span></p>
+<p class="p1"><span class="s1">  --h3: 20px;</span></p>
+<p class="p1"><span class="s1">  --body: 16px;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">  --radius: 10px;</span></p>
+<p class="p1"><span class="s1">  --shadow-soft: 0 8px 24px rgba(0,0,0,0.08);</span></p>
+<p class="p1"><span class="s1">  --shadow-hero: 0 12px 22px rgba(0,0,0,0.10);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   2) GLOBAL BASE</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">*,</span></p>
+<p class="p1"><span class="s1">*::before,</span></p>
+<p class="p1"><span class="s1">*::after { box-sizing: border-box; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">html { scroll-behavior: smooth; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">body {</span></p>
+<p class="p1"><span class="s1">  margin: 0;</span></p>
+<p class="p1"><span class="s1">  font-family: 'Public Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;</span></p>
+<p class="p1"><span class="s1">  font-size: var(--body);</span></p>
+<p class="p1"><span class="s1">  color: var(--ink);</span></p>
+<p class="p1"><span class="s1">  background: var(--bg);</span></p>
+<p class="p1"><span class="s1">  text-rendering: optimizeLegibility;</span></p>
+<p class="p1"><span class="s1">  -webkit-font-smoothing: antialiased;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">img, svg { max-width: 100%; height: auto; display: block; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">h1, h2, h3 {</span></p>
+<p class="p1"><span class="s1">  margin: 0 0 24px;</span></p>
+<p class="p1"><span class="s1">  font-weight: 600;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">p { line-height: 1.6; margin: 0 0 16px; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">a { color: inherit; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Utility container for centered content inside sections */</span></p>
+<p class="p1"><span class="s1">.content-wrapper {</span></p>
+<p class="p1"><span class="s1">  max-width: 1200px;</span></p>
+<p class="p1"><span class="s1">  margin: 0 auto;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   3) HEADER</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">.site-header {</span></p>
+<p class="p1"><span class="s1">  display: flex;</span></p>
+<p class="p1"><span class="s1">  align-items: center;</span></p>
+<p class="p1"><span class="s1">  padding: 16px 32px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.site-header img {</span></p>
+<p class="p1"><span class="s1">  /* Larger, but responsive */</span></p>
+<p class="p1"><span class="s1">  height: clamp(56px, 6.5vw, 72px);</span></p>
+<p class="p1"><span class="s1">  max-height: 72px;</span></p>
+<p class="p1"><span class="s1">  display: block;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   4) HERO – Split Layout (Text left, Visual right)</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">.hero {</span></p>
+<p class="p1"><span class="s1">  position: relative;</span></p>
+<p class="p1"><span class="s1">  background: var(--teal);</span></p>
+<p class="p1"><span class="s1">  color: #fff;</span></p>
+<p class="p1"><span class="s1">  padding: 88px 32px 96px;</span></p>
+<p class="p1"><span class="s1">  overflow: hidden;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Subtle blueprint grid backdrop */</span></p>
+<p class="p1"><span class="s1">.hero::before {</span></p>
+<p class="p1"><span class="s1">  content: "";</span></p>
+<p class="p1"><span class="s1">  position: absolute;</span></p>
+<p class="p1"><span class="s1">  inset: 0;</span></p>
+<p class="p1"><span class="s1">  background-image:</span></p>
+<p class="p1"><span class="s1">    linear-gradient(var(--grid) 1px, transparent 1px),</span></p>
+<p class="p1"><span class="s1">    linear-gradient(90deg, var(--grid) 1px, transparent 1px);</span></p>
+<p class="p1"><span class="s1">  background-size: 80px 80px;</span></p>
+<p class="p1"><span class="s1">  opacity: 0.14;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.hero-grid.hero-split {</span></p>
+<p class="p1"><span class="s1">  position: relative;</span></p>
+<p class="p1"><span class="s1">  z-index: 1;</span></p>
+<p class="p1"><span class="s1">  display: grid;</span></p>
+<p class="p1"><span class="s1">  max-width: 1400px;</span></p>
+<p class="p1"><span class="s1">  margin: 0 auto;</span></p>
+<p class="p1"><span class="s1">  gap: 36px;</span></p>
+<p class="p1"><span class="s1">  align-items: center;</span></p>
+<p class="p1"><span class="s1">  grid-template-columns: 1.35fr 0.65fr;  /* Give text more room */</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* LEFT: Message */</span></p>
+<p class="p1"><span class="s1">.hero-left { max-width: none; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.hero-title {</span></p>
+<p class="p1"><span class="s1">  /* Aim for ~2 lines on typical desktops via width + clamp */</span></p>
+<p class="p1"><span class="s1">  font-size: clamp(var(--h1-min), 4.2vw, var(--h1-max));</span></p>
+<p class="p1"><span class="s1">  line-height: 1.08;</span></p>
+<p class="p1"><span class="s1">  max-width: 900px;</span></p>
+<p class="p1"><span class="s1">  margin: 0 0 14px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.hero-sub {</span></p>
+<p class="p1"><span class="s1">  font-size: clamp(17px, 1.6vw, 20px);</span></p>
+<p class="p1"><span class="s1">  line-height: 1.45;</span></p>
+<p class="p1"><span class="s1">  color: rgba(255,255,255,0.92);</span></p>
+<p class="p1"><span class="s1">  max-width: 620px;</span></p>
+<p class="p1"><span class="s1">  margin: 0 0 24px;</span></p>
+<p class="p1"><span class="s1">  white-space: normal; /* default: allow wrap */</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">@media (min-width: 1024px) {</span></p>
+<p class="p1"><span class="s1">  .hero-sub { white-space: nowrap; } /* single line on larger screens */</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.hero-ctas {</span></p>
+<p class="p1"><span class="s1">  display: flex;</span></p>
+<p class="p1"><span class="s1">  gap: 16px;</span></p>
+<p class="p1"><span class="s1">  flex-wrap: wrap;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.cta-btn {</span></p>
+<p class="p1"><span class="s1">  display: inline-block;</span></p>
+<p class="p1"><span class="s1">  padding: 14px 20px;</span></p>
+<p class="p1"><span class="s1">  background: #fff;</span></p>
+<p class="p1"><span class="s1">  color: var(--teal);</span></p>
+<p class="p1"><span class="s1">  border-radius: 6px;</span></p>
+<p class="p1"><span class="s1">  font-weight: 600;</span></p>
+<p class="p1"><span class="s1">  text-decoration: none;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* RIGHT: Technical visual (lattice/CAD) */</span></p>
+<p class="p1"><span class="s1">.hero-right {</span></p>
+<p class="p1"><span class="s1">  position: relative;</span></p>
+<p class="p1"><span class="s1">  min-height: 260px;</span></p>
+<p class="p1"><span class="s1">  justify-self: end;  /* right align inside grid cell */</span></p>
+<p class="p1"><span class="s1">  align-self: start;  /* top align inside grid cell */</span></p>
+<p class="p1"><span class="s1">  pointer-events: none; /* decorative */</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Toggle between visuals */</span></p>
+<p class="p1"><span class="s1">.hero-right .iso-lattice,</span></p>
+<p class="p1"><span class="s1">.hero-right .cad-contour { display: none; }</span></p>
+<p class="p1"><span class="s1">.hero-right.visual--lattice .iso-lattice { display: block; }</span></p>
+<p class="p1"><span class="s1">.hero-right.visual--cad .cad-contour { display: block; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Common visual sizing / offset (top-right bias) */</span></p>
+<p class="p1"><span class="s1">.hero-right svg {</span></p>
+<p class="p1"><span class="s1">  width: 100%;</span></p>
+<p class="p1"><span class="s1">  height: auto;</span></p>
+<p class="p1"><span class="s1">  max-width: 440px;                 /* less footprint to free text width */</span></p>
+<p class="p1"><span class="s1">  transform: translate(18%, -14%);  /* push up/right */</span></p>
+<p class="p1"><span class="s1">  opacity: 0.95;</span></p>
+<p class="p1"><span class="s1">  filter: var(--shadow-hero);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Draw-in animations (respect reduced motion) */</span></p>
+<p class="p1"><span class="s1">@media (prefers-reduced-motion: no-preference) {</span></p>
+<p class="p1"><span class="s1">  .iso-lattice .l {</span></p>
+<p class="p1"><span class="s1">    stroke-dasharray: 480;</span></p>
+<p class="p1"><span class="s1">    stroke-dashoffset: 480;</span></p>
+<p class="p1"><span class="s1">    animation: draw 1.2s ease-out forwards;</span></p>
+<p class="p1"><span class="s1">  }</span></p>
+<p class="p1"><span class="s1">  .iso-lattice .layer-60 .l { animation-delay: 0.05s; }</span></p>
+<p class="p1"><span class="s1">  .iso-lattice .layer-120 .l { animation-delay: 0.10s; }</span></p>
+<p class="p1"><span class="s1">  @keyframes draw { to { stroke-dashoffset: 0; } }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">  .cad-contour .c {</span></p>
+<p class="p1"><span class="s1">    stroke-dasharray: 620;</span></p>
+<p class="p1"><span class="s1">    stroke-dashoffset: 620;</span></p>
+<p class="p1"><span class="s1">    animation: cad-draw 1.15s ease-out forwards;</span></p>
+<p class="p1"><span class="s1">  }</span></p>
+<p class="p1"><span class="s1">  .cad-contour g:nth-of-type(1) .c { animation-delay: 0s; }</span></p>
+<p class="p1"><span class="s1">  .cad-contour g:nth-of-type(2) .c { animation-delay: 0.08s; }</span></p>
+<p class="p1"><span class="s1">  .cad-contour g:nth-of-type(3) .c { animation-delay: 0.14s; }</span></p>
+<p class="p1"><span class="s1">  @keyframes cad-draw { to { stroke-dashoffset: 0; } }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Responsive stack for hero */</span></p>
+<p class="p1"><span class="s1">@media (max-width: 960px) {</span></p>
+<p class="p1"><span class="s1">  .hero-grid.hero-split {</span></p>
+<p class="p1"><span class="s1">    grid-template-columns: 1fr;</span></p>
+<p class="p1"><span class="s1">    gap: 20px;</span></p>
+<p class="p1"><span class="s1">  }</span></p>
+<p class="p1"><span class="s1">  .hero-right svg {</span></p>
+<p class="p1"><span class="s1">    max-width: 420px;</span></p>
+<p class="p1"><span class="s1">    transform: none; /* center on own row */</span></p>
+<p class="p1"><span class="s1">    filter: 0 8px 18px rgba(0,0,0,0.10);</span></p>
+<p class="p1"><span class="s1">  }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">@media (max-width: 640px) {</span></p>
+<p class="p1"><span class="s1">  .hero { padding: 110px 24px 120px; }</span></p>
+<p class="p1"><span class="s1">  .hero-title { font-size: clamp(32px, 8vw, 40px); max-width: 100%; }</span></p>
+<p class="p1"><span class="s1">  .hero-sub { font-size: 18px; white-space: normal; }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   5) GENERIC SECTIONS</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">.section {</span></p>
+<p class="p1"><span class="s1">  max-width: 1200px;</span></p>
+<p class="p1"><span class="s1">  margin: 0 auto;</span></p>
+<p class="p1"><span class="s1">  padding: 80px 32px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* THEMES */</span></p>
+<p class="p1"><span class="s1">.section-what {</span></p>
+<p class="p1"><span class="s1">  background: #ffffff;</span></p>
+<p class="p1"><span class="s1">  color: var(--ink);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.section-about {</span></p>
+<p class="p1"><span class="s1">  background: var(--teal);</span></p>
+<p class="p1"><span class="s1">  color: #ffffff;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.section-about h2 { color: #ffffff; }</span></p>
+<p class="p1"><span class="s1">.section-about p,</span></p>
+<p class="p1"><span class="s1">.section-about strong { color: rgba(255,255,255,0.92); }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.section-focus {</span></p>
+<p class="p1"><span class="s1">  background: #ffffff;</span></p>
+<p class="p1"><span class="s1">  color: var(--ink);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   6) CARDS (What We Do &amp; Areas of Focus)</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">.card-grid {</span></p>
+<p class="p1"><span class="s1">  display: grid;</span></p>
+<p class="p1"><span class="s1">  gap: 36px;</span></p>
+<p class="p1"><span class="s1">  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.card {</span></p>
+<p class="p1"><span class="s1">  background: #ffffff;</span></p>
+<p class="p1"><span class="s1">  border: 1px solid rgba(0,0,0,0.08);</span></p>
+<p class="p1"><span class="s1">  border-radius: var(--radius);</span></p>
+<p class="p1"><span class="s1">  padding: 28px;</span></p>
+<p class="p1"><span class="s1">  transition: transform 0.2s ease, box-shadow 0.2s ease;</span></p>
+<p class="p1"><span class="s1">  display: flex;</span></p>
+<p class="p1"><span class="s1">  flex-direction: column;</span></p>
+<p class="p1"><span class="s1">  height: 100%;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.card:hover {</span></p>
+<p class="p1"><span class="s1">  transform: translateY(-2px);</span></p>
+<p class="p1"><span class="s1">  box-shadow: var(--shadow-soft);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.card h3 { margin: 0 0 12px; }</span></p>
+<p class="p1"><span class="s1">.card ul { padding-left: 18px; margin: 8px 0 0; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Areas of Focus – enforce 2 columns (2x2) on ≥768px */</span></p>
+<p class="p1"><span class="s1">.section-focus .card-grid {</span></p>
+<p class="p1"><span class="s1">  grid-template-columns: 1fr;   /* mobile default: 1 column */</span></p>
+<p class="p1"><span class="s1">  gap: 64px 48px;               /* generous spacing rows/cols */</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">@media (min-width: 768px) {</span></p>
+<p class="p1"><span class="s1">  .section-focus .card-grid {</span></p>
+<p class="p1"><span class="s1">    grid-template-columns: repeat(2, 1fr);</span></p>
+<p class="p1"><span class="s1">  }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Heading rhythm for Focus cards */</span></p>
+<p class="p1"><span class="s1">.section-focus.cards--one-line .card h3 {</span></p>
+<p class="p1"><span class="s1">  --h3-size: 20px; --h3-line: 1.2;</span></p>
+<p class="p1"><span class="s1">  font-size: var(--h3-size);</span></p>
+<p class="p1"><span class="s1">  line-height: var(--h3-line);</span></p>
+<p class="p1"><span class="s1">  white-space: nowrap;</span></p>
+<p class="p1"><span class="s1">  overflow: hidden;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">@media (max-width: 640px) {</span></p>
+<p class="p1"><span class="s1">  .section-focus.cards--one-line .card h3 {</span></p>
+<p class="p1"><span class="s1">    white-space: normal;</span></p>
+<p class="p1"><span class="s1">    text-wrap: balance;</span></p>
+<p class="p1"><span class="s1">  }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* Bullet spacing */</span></p>
+<p class="p1"><span class="s1">.section-focus .card ul li {</span></p>
+<p class="p1"><span class="s1">  margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1">  line-height: 1.45;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.section-focus .card ul li:last-child { margin-bottom: 0; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   7) CTA BAND</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">.cta-section {</span></p>
+<p class="p1"><span class="s1">  text-align: center;</span></p>
+<p class="p1"><span class="s1">  padding: 100px 32px;</span></p>
+<p class="p1"><span class="s1">  background: var(--accent);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.cta-section a {</span></p>
+<p class="p1"><span class="s1">  background: var(--teal);</span></p>
+<p class="p1"><span class="s1">  color: #fff;</span></p>
+<p class="p1"><span class="s1">  padding: 14px 28px;</span></p>
+<p class="p1"><span class="s1">  border-radius: 4px;</span></p>
+<p class="p1"><span class="s1">  font-weight: 600;</span></p>
+<p class="p1"><span class="s1">  text-decoration: none;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   8) FOOTER</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">footer {</span></p>
+<p class="p1"><span class="s1">  text-align: center;</span></p>
+<p class="p1"><span class="s1">  padding: 40px;</span></p>
+<p class="p1"><span class="s1">  font-size: 14px;</span></p>
+<p class="p1"><span class="s1">  color: #666;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   9) ACCESSIBILITY / PREFERENCES</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">@media (prefers-reduced-motion: reduce) {</span></p>
+<p class="p1"><span class="s1">  *, *::before, *::after {</span></p>
+<p class="p1"><span class="s1">    animation: none !important;</span></p>
+<p class="p1"><span class="s1">    transition: none !important;</span></p>
+<p class="p1"><span class="s1">    scroll-behavior: auto !important;</span></p>
+<p class="p1"><span class="s1">  }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* --------------------------------------------------</span></p>
+<p class="p1"><span class="s1">   10) PRINT (simple, text-first)</span></p>
+<p class="p1"><span class="s1">-------------------------------------------------- */</span></p>
+<p class="p1"><span class="s1">@media print {</span></p>
+<p class="p1"><span class="s1">  .hero { padding: 24px; color: #000; background: #fff; }</span></p>
+<p class="p1"><span class="s1">  .hero::before { display: none; }</span></p>
+<p class="p1"><span class="s1">  .hero-right { display: none; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">  .cta-section { background: #fff; }</span></p>
+<p class="p1"><span class="s1">  a { text-decoration: underline; color: #000; }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+</body>
+</html>
