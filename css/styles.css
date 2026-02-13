@@ -2,129 +2,349 @@
    VAIRA Advisory – Stylesheet
    ====================================================================== */
 
-/* 1) TOKENS */
-:root{
-  --teal:#0A6064; --grid:#0D6F73; --ink:#0C1A1C; --muted:#6E7A82; --accent:#B8D4D0; --bg:#fff;
-  --h1-max:46px; --h1-min:34px; --h2:28px; --h3:20px; --body:16px;
-  --radius:10px;
-  --shadow-soft:0 8px 24px rgba(0,0,0,.08);
-  --shadow-hero:0 12px 22px rgba(0,0,0,.10);
+/* --------------------------------------------------
+   1) CSS VARIABLES (Design tokens)
+-------------------------------------------------- */
+:root {
+  --teal:   #0A6064;
+  --grid:   #0D6F73;
+  --ink:    #0C1A1C;
+  --muted:  #6E7A82;
+  --accent: #B8D4D0;
+  --bg: #ffffff;
+
+  /* Type scale & rhythm */
+  --h1-max: 46px;    /* Hero title max size */
+  --h1-min: 34px;    /* Hero title min size */
+  --h2: 28px;
+  --h3: 20px;
+  --body: 16px;
+
+  --radius: 10px;
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-hero: 0 12px 22px rgba(0,0,0,0.10);
 }
 
-/* 2) BASE */
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0; font-family:'Public Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  font-size:var(--body); color:var(--ink); background:var(--bg);
-  text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased;
-}
-img,svg{max-width:100%;height:auto;display:block}
-h1,h2,h3{margin:0 0 24px;font-weight:600}
-p{line-height:1.6;margin:0 0 16px}
-a{color:inherit}
-.content-wrapper{max-width:1200px;margin:0 auto}
+/* --------------------------------------------------
+   2) GLOBAL BASE
+-------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
-/* 3) HEADER */
-.site-header{display:flex;align-items:center;padding:16px 32px}
-.site-header img{height:clamp(56px,6.5vw,72px);max-height:72px;display:block}
+html { scroll-behavior: smooth; }
 
-/* 4) HERO */
-.hero{position:relative;background:var(--teal);color:#fff;padding:88px 32px 96px;overflow:hidden}
-.hero::before{
-  content:"";position:absolute;inset:0;
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:80px 80px;opacity:.14;
-}
-.hero-grid.hero-split{
-  position:relative;z-index:1;display:grid;max-width:1400px;margin:0 auto;gap:36px;align-items:center;
-  grid-template-columns:1.35fr .65fr;
-}
-.hero-left{max-width:none}
-.hero-title{font-size:clamp(var(--h1-min),4.2vw,var(--h1-max));line-height:1.08;max-width:900px;margin:0 0 14px}
-.hero-sub{font-size:clamp(17px,1.6vw,20px);line-height:1.45;color:rgba(255,255,255,.92);max-width:620px;margin:0 0 24px;white-space:normal}
-@media (min-width:1024px){.hero-sub{white-space:nowrap}}
-.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
-.cta-btn{display:inline-block;padding:14px 20px;background:#fff;color:var(--teal);border-radius:6px;font-weight:600;text-decoration:none}
-
-/* Right visual (toggle) */
-.hero-right{position:relative;min-height:260px;justify-self:end;align-self:start;pointer-events:none}
-.hero-right .iso-lattice,.hero-right .cad-contour{display:none}
-.hero-right.visual--lattice .iso-lattice{display:block}
-.hero-right.visual--cad .cad-contour{display:block}
-.hero-right svg{
-  width:100%;height:auto;max-width:440px;transform:translate(18%,-14%);opacity:.95;filter:drop-shadow(0 12px 22px rgba(0,0,0,.10));
+body {
+  margin: 0;
+  font-family: 'Public Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: var(--body);
+  color: var(--ink);
+  background: --bg;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Draw-in (reduced motion respected) */
-@media (prefers-reduced-motion:no-preference){
-  .iso-lattice .l{stroke-dasharray:480;stroke-dashoffset:480;animation:draw 1.2s ease-out forwards}
-  .iso-lattice .layer-60 .l{animation-delay:.05s}
-  .iso-lattice .layer-120 .l{animation-delay:.10s}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  .cad-contour .c{stroke-dasharray:620;stroke-dashoffset:620;animation:cad-draw 1.15s ease-out forwards}
-  .cad-contour g:nth-of-type(1) .c{animation-delay:0s}
-  .cad-contour g:nth-of-type(2) .c{animation-delay:.08s}
-  .cad-contour g:nth-of-type(3) .c{animation-delay:.14s}
-  @keyframes cad-draw{to{stroke-dashoffset:0}}
+img, svg { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 {
+  margin: 0 0 24px;
+  font-weight: 600;
 }
 
-/* Hero responsive */
-@media (max-width:960px){
-  .hero-grid.hero-split{grid-template-columns:1fr;gap:20px}
-  .hero-right svg{max-width:420px;transform:none;filter:drop-shadow(0 8px 18px rgba(0,0,0,.10))}
-}
-@media (max-width:640px){
-  .hero{padding:110px 24px 120px}
-  .hero-title{font-size:clamp(32px,8vw,40px);max-width:100%}
-  .hero-sub{font-size:18px;white-space:normal}
-}
+p { line-height: 1.6; margin: 0 0 16px; }
 
-/* 5) SECTIONS */
-.section{max-width:1200px;margin:0 auto;padding:80px 32px}
-.section-what{background:#fff;color:var(--ink)}
-.section-about{background:var(--teal);color:#fff}
-.section-about h2{color:#fff}
-.section-about p,.section-about strong{color:rgba(255,255,255,.92)}
-.section-focus{background:#fff;color:var(--ink)}
+a { color: inherit; }
 
-/* 6) CARDS */
-.card-grid{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{
-  background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);padding:28px;
-  transition:transform .2s ease, box-shadow .2s ease;display:flex;flex-direction:column;height:100%;
-}
-.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-soft)}
-.card h3{margin:0 0 12px}
-.card ul{padding-left:18px;margin:8px 0 0}
-
-/* Focus grid: 2x2 on ≥768px */
-.section-focus .card-grid{grid-template-columns:1fr;gap:64px 48px}
-@media (min-width:768px){.section-focus .card-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* Heading rhythm + bullet spacing */
-.section-focus.cards--one-line .card h3{--h3-size:20px;--h3-line:1.2;font-size:var(--h3-size);line-height:var(--h3-line);white-space:nowrap;overflow:hidden}
-@media (max-width:640px){.section-focus.cards--one-line .card h3{white-space:normal;text-wrap:balance}}
-.section-focus .card ul li{margin-bottom:10px;line-height:1.45}
-.section-focus .card ul li:last-child{margin-bottom:0}
-
-/* 7) CTA */
-.cta-section{text-align:center;padding:100px 32px;background:var(--accent)}
-.cta-section a{background:var(--teal);color:#fff;padding:14px 28px;border-radius:4px;font-weight:600;text-decoration:none}
-
-/* 8) FOOTER */
-footer{text-align:center;padding:40px;font-size:14px;color:#666}
-
-/* 9) PREFERENCES */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+/* Utility container for centered content inside sections */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* 10) PRINT */
-@media print{
-  .hero{padding:24px;color:#000;background:#fff}
-  .hero::before{display:none}
-  .hero-right{display:none}
-  .cta-section{background:#fff}
-  a{text-decoration:underline;color:#000}
+/* --------------------------------------------------
+   3) HEADER
+-------------------------------------------------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
+}
+
+.site-header img {
+  /* Larger, but responsive */
+  height: clamp(56px, 6.5vw, 72px);
+  max-height: 72px;
+  display: block;
+}
+
+/* --------------------------------------------------
+   4) HERO – Split Layout (Text left, Visual right)
+-------------------------------------------------- */
+.hero {
+  position: relative;
+  background: var(--teal);
+  color: #fff;
+  padding: 88px 32px 96px;
+  overflow: hidden;
+}
+
+/* Subtle blueprint grid backdrop */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.14;
+}
+
+.hero-grid.hero-split {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 36px;
+  align-items: center;
+  grid-template-columns: 1.35fr 0.65fr;  /* Give text more room */
+}
+
+/* LEFT: Message */
+.hero-left { max-width: none; }
+
+.hero-title {
+  /* Aim for ~2 lines on typical desktops via width + clamp */
+  font-size: clamp(var(--h1-min), 4.2vw, var(--h1-max));
+  line-height: 1.08;
+  max-width: 900px;
+  margin: 0 0 14px;
+}
+
+.hero-sub {
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.45;
+  color: rgba(255,255,255,0.92);
+  max-width: 620px;
+  margin: 0 0 24px;
+  white-space: normal;   /* default: allow wrap */
+}
+@media (min-width: 1024px) {
+  .hero-sub { white-space: nowrap; } /* single line on larger screens */
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 14px 20px;
+  background: #fff;
+  color: var(--teal);
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* RIGHT: Technical visual (lattice/CAD) */
+.hero-right {
+  position: relative;
+  min-height: 260px;
+  justify-self: end;   /* right align inside grid cell */
+  align-self: start;   /* top align inside grid cell */
+  pointer-events: none; /* decorative */
+}
+
+/* Toggle between visuals */
+.hero-right .iso-lattice,
+.hero-right .cad-contour { display: none; }
+.hero-right.visual--lattice .iso-lattice { display: block; }
+.hero-right.visual--cad .cad-contour { display: block; }
+
+/* Common visual sizing / offset (top-right bias) */
+.hero-right svg {
+  width: 100%;
+  height: auto;
+  max-width: 440px;                 /* less footprint to free text width */
+  transform: translate(18%, -14%);  /* push up/right */
+  opacity: 0.95;
+  filter: drop-shadow(0 12px 22px rgba(0,0,0,0.10));
+}
+
+/* Draw-in animations (respect reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .iso-lattice .l {
+    stroke-dasharray: 480;
+    stroke-dashoffset: 480;
+    animation: draw 1.2s ease-out forwards;
+  }
+  .iso-lattice .layer-60 .l { animation-delay: 0.05s; }
+  .iso-lattice .layer-120 .l { animation-delay: 0.10s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .cad-contour .c {
+    stroke-dasharray: 620;
+    stroke-dashoffset: 620;
+    animation: cad-draw 1.15s ease-out forwards;
+  }
+  .cad-contour g:nth-of-type(1) .c { animation-delay: 0s; }
+  .cad-contour g:nth-of-type(2) .c { animation-delay: 0.08s; }
+  .cad-contour g:nth-of-type(3) .c { animation-delay: 0.14s; }
+  @keyframes cad-draw { to { stroke-dashoffset: 0; } }
+}
+
+/* Responsive stack for hero */
+@media (max-width: 960px) {
+  .hero-grid.hero-split {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .hero-right svg {
+    max-width: 420px;
+    transform: none; /* center on own row */
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.10));
+  }
+}
+@media (max-width: 640px) {
+  .hero { padding: 110px 24px 120px; }
+  .hero-title { font-size: clamp(32px, 8vw, 40px); max-width: 100%; }
+  .hero-sub { font-size: 18px; white-space: normal; }
+}
+
+/* --------------------------------------------------
+   5) GENERIC SECTIONS
+-------------------------------------------------- */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 32px;
+}
+
+/* THEMES */
+.section-what {
+  background: #ffffff;
+  color: var(--ink);
+}
+.section-about {
+  background: var(--teal);
+  color: #ffffff;
+}
+.section-about h2 { color: #ffffff; }
+.section-about p,
+.section-about strong { color: rgba(255,255,255,0.92); }
+
+.section-focus {
+  background: #ffffff;
+  color: var(--ink);
+}
+
+/* --------------------------------------------------
+   6) CARDS (What We Do & Areas of Focus)
+-------------------------------------------------- */
+.card-grid {
+  display: grid;
+  gap: 36px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+.card h3 { margin: 0 0 12px; }
+.card ul { padding-left: 18px; margin: 8px 0 0; }
+
+/* Areas of Focus – enforce 2 columns (2x2) on ≥768px */
+.section-focus .card-grid {
+  grid-template-columns: 1fr;   /* mobile default: 1 column */
+  gap: 64px 48px;               /* generous spacing rows/cols */
+}
+@media (min-width: 768px) {
+  .section-focus .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Heading rhythm for Focus cards */
+.section-focus.cards--one-line .card h3 {
+  --h3-size: 20px; --h3-line: 1.2;
+  font-size: var(--h3-size);
+  line-height: var(--h3-line);
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .section-focus.cards--one-line .card h3 {
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
+/* Bullet spacing */
+.section-focus .card ul li {
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+.section-focus .card ul li:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------
+   7) CTA BAND
+-------------------------------------------------- */
+.cta-section {
+  text-align: center;
+  padding: 100px 32px;
+  background: var(--accent);
+}
+.cta-section a {
+  background: var(--teal);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------
+   8) FOOTER
+-------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* --------------------------------------------------
+   9) ACCESSIBILITY / PREFERENCES
+-------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------
+   10) PRINT (simple, text-first)
+-------------------------------------------------- */
+@media print {
+  .hero { padding: 24px; color: #000; background: #fff; }
+  .hero::before { display: none; }
+  .hero-right { display: none; }
+  .cta-section { background: #fff; }
+  a { text-decoration: underline; color: #000; }
 }

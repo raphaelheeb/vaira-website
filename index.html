@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VAIRA Advisory</title>
 
-  <!-- Base path so assets work from subfolders like /en/ -->
-  <!-- NOTE: For a GitHub Pages *project site*, the base includes the repo name. -->
-  <base href="/vaira-website/">
-
-  <!-- Google Fonts (single include) -->
+  <!-- Google Fonts (single load) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Site CSS -->
@@ -28,7 +26,9 @@
 
       <!-- LEFT: message -->
       <div class="hero-left">
-        <h1 class="hero-title">Turning Technology into Scalable, First‑Time‑Right Industrial Solutions.</h1>
+        <h1 class="hero-title">
+          Turning Technology into Scalable, First‑Time‑Right Industrial Solutions.
+        </h1>
         <p class="hero-sub">
           We support organizations at the intersection of innovation, technology, and advanced manufacturing.
         </p>
@@ -37,16 +37,16 @@
         </div>
       </div>
 
-      <!-- RIGHT: abstract technical visual (toggle by class) -->
+      <!-- RIGHT: abstract technical visual (toggle by class on this div) -->
       <div class="hero-right visual--cad">
-        <!-- Optional: keep lattice so you can toggle to visual--lattice -->
+        <!-- (Optional) LATTICE (kept for toggle flexibility) -->
         <svg class="iso-lattice" viewBox="0 0 600 600" aria-hidden="true" role="img">
           <defs>
             <linearGradient id="isoStroke" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="rgba(184,212,208,0.65)"/>
               <stop offset="1" stop-color="rgba(184,212,208,0.25)"/>
             </linearGradient>
-            <style>.l{fill:none;stroke:url(#isoStroke);stroke-width:1.2;vector-effect:non-scaling-stroke}</style>
+            <style>.l { fill:none; stroke:url(#isoStroke); stroke-width:1.2; vector-effect: non-scaling-stroke; }</style>
           </defs>
           <g class="layer-h">
             <path class="l" d="M80 120 L520 120"/><path class="l" d="M60 180 L540 180"/><path class="l" d="M40 240 L560 240"/>
@@ -71,7 +71,7 @@
               <stop offset="0" stop-color="rgba(184,212,208,0.7)"/>
               <stop offset="1" stop-color="rgba(184,212,208,0.3)"/>
             </linearGradient>
-            <style>.c{fill:none;stroke:url(#cadStroke);stroke-width:1.5;vector-effect:non-scaling-stroke}.dash{stroke-dasharray:6 8}</style>
+            <style>.c { fill:none; stroke:url(#cadStroke); stroke-width:1.5; vector-effect:non-scaling-stroke; } .dash { stroke-dasharray:6 8; }</style>
           </defs>
           <!-- Primary contour family -->
           <g>
