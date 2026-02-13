@@ -434,3 +434,45 @@ Everything else in your structure (split‑hero, cards, 2×2 grid for Areas of F
           <g>
             <path class="c" d="M180 180 C160 260, 160 360, 180 440"/>
             <path class="c" d="M240 160 C220 250, 220 370, 240 460"/>
+            
+/* Header: logo left, language switch right */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* push right block to the edge */
+  padding: 16px 32px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-switch a {
+  color: var(--ink);
+  background: rgba(0,0,0,0.04);
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lang-switch a[aria-current="true"],
+.lang-switch a:hover {
+  background: var(--teal);
+  color: #fff;
+}
+
+/* On hero (teal background), invert language switch colors for contrast */
+.hero + .section,
+.hero .lang-switch a {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+.hero .lang-switch a[aria-current="true"],
+.hero .lang-switch a:hover {
+  background: #fff;
+  color: var(--teal);
+}
