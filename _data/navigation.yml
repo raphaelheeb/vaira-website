@@ -1,0 +1,17 @@
+- name: Home
+  link: /
+- name: Services
+  link: /services/
+  children:
+    - name: Technology Scouting
+      link: /services/tech-scouting/
+    - name: Supply Chain Intelligence
+      link: /services/supply-chain/
+- name: Cases
+  link: /cases/
+- name: Insights
+  link: /insights/
+- name: About
+  link: /about/
+- name: Contact
+  link: /contact/

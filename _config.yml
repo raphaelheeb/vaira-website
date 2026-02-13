@@ -1,0 +1,8 @@
+title: 'VAIRA Advisory'
+url: 'https://raphaelheeb.github.io'
+baseurl: '/vaira-website'
+markdown: kramdown
+theme: minima
+permalink: pretty
+plugins:
+  - jekyll-seo-tag
