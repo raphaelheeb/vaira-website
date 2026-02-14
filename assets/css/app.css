@@ -459,4 +459,37 @@ p{margin:0 0 12px;color:var(--muted)}
 }
 .cta-btn:hover{ opacity:.92; }
 
+/* Header spacing */
+.site-header{
+  padding: 24px 48px;   /* add horizontal breathing room */
+}
+
+/* Full-bleed hero with proper side padding */
+.hero{
+  width: 100%;
+  padding: 60px 0;
+  background: var(--hero-bg);
+}
+
+.hero-grid{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 0 48px;     /* THIS is what fixes the left-edge issue */
+}
+
+/* On desktop */
+@media (min-width: 900px){
+  .hero-grid.hero-split{
+    grid-template-columns: 1.1fr 0.9fr;
+    padding: 0 64px;   /* More breathing room on large screens */
+    gap: 48px;
+  }
+}
+
+.hero-left{
+  max-width: 680px;
+}
+
 */
