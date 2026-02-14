@@ -3,8 +3,14 @@
 <title>{{ page.title }} | {{ site.title }}</title>
 {% seo %}
 
-<!-- Google Fonts (from your original file) -->
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&display=swap"
+  rel="stylesheet"
+/>
 
-<!-- Site CSS (your unified stylesheet) -->
-{{ 
+<!-- Site CSS (app.css) with a simple per-build cache-buster -->
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/app.css' | relative_url }}?v={{ site.time | date: '%s' }}"
+/>
