@@ -111,3 +111,8 @@ p{margin:0 0 12px;color:var(--muted)}
   .cards--one-line .card-grid{grid-template-columns: repeat(4, 1fr)}
   .site-header{padding:26px 0}
 }
+
+/* Optional: show current page in the nav (if you add 'active' in Liquid later) */
+.site-nav .active > a {
+  text-decoration: underline;
+}
