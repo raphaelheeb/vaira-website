@@ -4,18 +4,20 @@
       {% for item in site.data.navigation %}
         {% assign url = item.link | relative_url %}
         <li class="nav-item">
-          {{ item.name }}</a>
+          {{ url }}{{ item.name }}</a>
 
-          {% if item.children %}
+          {%- comment -%}
+          Submenus are intentionally disabled for now to keep the top bar clean.
+          Re-enable the block below when you want a dropdown and add submenu CSS.
+          {%- endcomment -%}
+          {%- if false and item.children -%}
             <ul class="nav-submenu">
-              {% for sub in item.children %}
+              {%- for sub in item.children -%}
                 {% assign sub_url = sub.link | relative_url %}
-                <li>
-                  {{ sub.name }}</a>
-                </li>
-              {% endfor %}
+                <li>{{ sub_url }}{{ sub.name }}</a></li>
+              {%- endfor -%}
             </ul>
-          {% endif %}
+          {%- endif -%}
         </li>
       {% endfor %}
     </ul>
