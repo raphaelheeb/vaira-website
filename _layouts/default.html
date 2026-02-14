@@ -7,7 +7,7 @@
   {% seo %}
 
   <!-- Site CSS (app.css) with a simple per-build cache-buster -->
-  {{ 
+  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
   {% include nav.html %}
