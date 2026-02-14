@@ -6,7 +6,7 @@
   --brand-ink:#ffffff;
   --accent:#86c5bd;
   --border:#e9ecef;
-
+  --hero-bg: #eaf4f2;  /* soft teal that matches your SVG palette */
   --maxw: 1120px;
   --pad: 16px;
 
@@ -50,7 +50,10 @@ p{margin:0 0 12px;color:var(--muted)}
 .site-header img{height:36px;width:auto}
 
 /* HERO */
-.hero{padding:28px 0 12px}
+.hero{
+  padding:28px 0 12px;
+  background: var(--hero-bg);
+}
 .hero-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
 .hero-title{margin-top:8px}
 .hero-sub{font-size:var(--lead);max-width:60ch}
@@ -62,9 +65,16 @@ p{margin:0 0 12px;color:var(--muted)}
 .cta-btn:hover{opacity:.92}
 
 /* Right visual pane */
-.hero-right{min-height:240px;position:relative}
+.hero-right{min-height:300px;position:relative}
+@media (min-width: 900px){
+  .hero-right{min-height:380px;}
+}
 .iso-lattice,.cad-contour{position:absolute;inset:0;width:100%;height:100%;}
 .cad-contour{mix-blend-mode:multiply}
+
+/* Subtle visibility bump for the SVG lines on light backgrounds */
+.iso-lattice .l { opacity: 0.9; }
+.cad-contour .c { opacity: 0.9; }
 
 /* SECTIONS */
 .section{padding:28px 0;border-top:1px solid rgba(0,0,0,.02)}
