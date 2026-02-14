@@ -108,12 +108,17 @@ p{margin:0 0 12px;color:var(--muted)}
 
 /* CTA band */
 .cta-section{
-  text-align:center;
-  padding:36px var(--pad);
-  background:#fafafa;
-  border-top:1px solid var(--border)
+  width: 100%;
+  text-align: center;
+  padding: 48px 0;
+  background: #fafafa;   /* original color */
+  border-top: 1px solid var(--border);
 }
-.cta-section h2{margin-bottom:12px}
+.cta-section h2{
+  max-width: 900px;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+}
 
 /* Footer */
 .footer{
