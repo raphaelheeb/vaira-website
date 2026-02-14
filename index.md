@@ -16,7 +16,7 @@ permalink: /
           We support organizations at the intersection of innovation, technology, and advanced manufacturing.
         </p>
         <div class="hero-ctas">
-          mailto:info@vaira-advisory.comGet in Touch</a>
+         mailto:info@vaira-advisory.com" class="cta-btn">Get in Touch</a>
         </div>
       </div>
 
