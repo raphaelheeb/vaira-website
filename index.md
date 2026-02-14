@@ -6,7 +6,6 @@ permalink: /
 
 <!-- HERO -->
 <section class="hero">
-  <div class="content-wrapper">
     <div class="hero-grid hero-split">
 
       <!-- LEFT: message -->
@@ -104,7 +103,6 @@ permalink: /
 
       </div><!-- /.hero-right -->
     </div><!-- /.hero-grid -->
-  </div><!-- /.content-wrapper -->
 </section>
 
 <!-- WHAT WE DO -->
