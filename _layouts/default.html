@@ -6,14 +6,16 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   {% seo %}
 
-  <!-- Site CSS (app.css) with a simple cache-buster -->
-  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <!-- Site CSS (app.css) with a simple per-build cache-buster -->
+  {{ 
 </head>
 <body>
   {% include nav.html %}
+
   <main class="page-content">
     {{ content }}
   </main>
+
   {% include footer.html %}
 </body>
 </html>
