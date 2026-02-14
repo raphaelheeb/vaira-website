@@ -110,5 +110,5 @@ permalink: /
 <!-- CTA -->
 <section class="cta-section">
   <h2>Explore how VAIRA Advisory can support your project.</h2>
-  <a href="mailto:info@vaira-advisory.com">Schedule a Call</a>
+  <a href="mailto:info@vaira-advisory.com" class="cta-btn">Get in Touch</a>
 </section>
