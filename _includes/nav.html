@@ -9,7 +9,10 @@
           {% if item.children %}
             <ul class="nav-submenu">
               {% for sub in item.children %}
-                <li>{{ sub.link | relative_url }}{{ sub.name }}</a></li>
+                {% assign sub_url = sub.link | relative_url %}
+                <li>
+                  {{ sub_url }}{{ sub.name }}</a>
+                </li>
               {% endfor %}
             </ul>
           {% endif %}
