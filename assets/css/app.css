@@ -222,4 +222,58 @@ p{margin:0 0 12px;color:var(--muted)}
   opacity: 1;
   text-decoration: underline;            /* clear hover/active affordance */
 }
+
+/* === Header logo size (bigger) === */
+.site-header { padding: 16px 0; }
+.site-header .content-wrapper { display:flex; align-items:center; }
+.site-header .logo, .site-header img {
+  height: 48px;   /* was 36px; try 56px if you want even larger */
+  width: auto;
+  display: block;
+}
+
+/* === Nav bar: slimmer & readable === */
+:root{
+  --brand: #1a3242;   /* softer than near-black; adjust if you prefer */
+  --brand-ink: #ffffff;
+}
+
+.site-nav {
+  background: var(--brand);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* keep nav aligned with content column and trim vertical space */
+.site-nav .content-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 48px;   /* try 44px for extra slim; 48 is a good target */
+  padding: 6px 0;
+}
+
+.site-nav .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;          /* can go 16–24px depending on taste */
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .nav-item { display: block; }
+
+.site-nav a {
+  color: var(--brand-ink) !important;  /* force white */
+  text-decoration: none;
+  font-size: 15px;                     /* readable but compact */
+  line-height: 1;                      /* prevent added height */
+  opacity: .95;
+}
+
+.site-nav a:hover,
+.site-nav .active > a {
+  opacity: 1;
+  text-decoration: underline;
+}
 */
