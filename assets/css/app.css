@@ -276,4 +276,46 @@ p{margin:0 0 12px;color:var(--muted)}
   opacity: 1;
   text-decoration: underline;
 }
+
+/* === NAV polishing === */
+:root{
+  --brand: #1a3242;   /* adjust to your brand: try #24495f for lighter */
+  --brand-ink: #ffffff;
+}
+
+.site-nav{
+  background: var(--brand);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-nav .content-wrapper{
+  display: flex;
+  align-items: center;
+  min-height: 46px;   /* was taller; try 44–48px range */
+  padding: 4px 0;     /* reduce vertical padding */
+}
+
+.site-nav .nav-list{
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .nav-item{ display: block; }
+.site-nav a{
+  color: var(--brand-ink) !important;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1;     /* prevents extra height from line box */
+  opacity: .95;
+}
+.site-nav a:hover,
+.site-nav .active > a{
+  opacity: 1;
+  text-decoration: underline;
+}
 */
