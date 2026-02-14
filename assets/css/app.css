@@ -318,4 +318,51 @@ p{margin:0 0 12px;color:var(--muted)}
   opacity: 1;
   text-decoration: underline;
 }
+/* ==== NAV: teal background, readable white links, slimmer bar ==== */
+:root{
+  /* choose the teal you like most; a few good options: */
+  --brand: #86c5bd;  /* light teal (matches your accent) */
+  /* --brand: #6fbab0;   a touch darker */
+  /* --brand: #5aaea4;   darker again */
+  --brand-ink: #ffffff; /* white text on teal */
+}
+
+.site-nav{
+  background: var(--brand);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* keep nav aligned with content and reduce vertical size */
+.site-nav .content-wrapper{
+  display: flex;
+  align-items: center;
+  min-height: 46px;   /* try 44–48px; adjust to taste */
+  padding: 4px 0;
+}
+
+.site-nav .nav-list{
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .nav-item{ display: block; }
+
+.site-nav a{
+  color: var(--brand-ink) !important;  /* force white */
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1;       /* avoid extra height */
+  opacity: .95;
+}
+.site-nav a:hover,
+.site-nav .active > a{
+  opacity: 1;
+  text-decoration: underline;
+}
+
 */
