@@ -62,11 +62,29 @@ p{margin:0 0 12px;color:var(--muted)}
   padding: 60px 0;
   background: var(--hero-bg);
 }
-.hero-grid{
-  max-width: 1120px;      /* only content is centered, not the background */
-  margin: 0 auto;
-  padding: 0 32px;
+
+/* Make the grid full-width */
+.hero-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 32px;  /* side breathing room, adjust as needed */
 }
+
+/* On large screens: two-column layout */
+@media (min-width: 900px){
+  .hero-grid.hero-split {
+    grid-template-columns: 1.05fr .95fr;
+    gap: 40px;
+    padding: 0 48px; /* adjust horizontal spacing */
+  }
+}
+
+/* === Fix LEFT side text width (optional) === */
+.hero-left {
+  max-width: 650px;   /* same as original design */
+}
+
 .hero-title{margin-top:8px}
 .hero-sub{font-size:var(--lead);max-width:60ch}
 .hero-ctas{margin-top:16px}
