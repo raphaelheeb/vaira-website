@@ -4,14 +4,14 @@
       {% for item in site.data.navigation %}
         {% assign url = item.link | relative_url %}
         <li class="nav-item">
-          {{ url }}{{ item.name }}</a>
+          {{ item.name }}</a>
 
           {% if item.children %}
             <ul class="nav-submenu">
               {% for sub in item.children %}
                 {% assign sub_url = sub.link | relative_url %}
                 <li>
-                  {{ sub_url }}{{ sub.name }}</a>
+                  {{ sub.name }}</a>
                 </li>
               {% endfor %}
             </ul>
