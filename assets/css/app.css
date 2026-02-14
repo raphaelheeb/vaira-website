@@ -403,5 +403,60 @@ p{margin:0 0 12px;color:var(--muted)}
   opacity: 1;
   text-decoration: underline;
 }
+/* === Full-bleed hero and robust right visual === */
+:root{
+  --hero-bg: #eaf4f2; /* your soft teal; adjust to taste */
+}
+
+.hero{
+  width: 100%;
+  background: var(--hero-bg);
+  padding: 60px 0;
+}
+
+/* Full-width grid; add side breathing room directly here */
+.hero-grid{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;   /* mobile */
+  gap: 24px;
+  padding: 0 32px;              /* horizontal padding at small widths */
+}
+
+@media (min-width: 900px){
+  .hero-grid.hero-split{
+    grid-template-columns: 1.05fr .95fr;  /* two columns on desktop */
+    gap: 40px;
+    padding: 0 48px;                       /* horizontal padding on desktop */
+  }
+}
+
+/* Constrain text measure without constraining the whole section */
+.hero-left{ max-width: 680px; }
+
+/* Ensure right visuals are visible */
+.hero-right{ position: relative; min-height: 320px; }
+@media (min-width: 900px){ .hero-right{ min-height: 420px; } }
+
+.iso-lattice, .cad-contour{
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.cad-contour{ mix-blend-mode: multiply; }
+
+/* Slight visibility bump if needed */
+.iso-lattice .l { opacity: 0.9; }
+.cad-contour .c { opacity: 0.9; }
+
+/* CTA button (make sure it's a real <a>) */
+.cta-btn{
+  display:inline-block;
+  background:#0f1720;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+.cta-btn:hover{ opacity:.92; }
 
 */
