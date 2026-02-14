@@ -173,4 +173,53 @@ p{margin:0 0 12px;color:var(--muted)}
   font-size:14px;
 }
 .nav-submenu li a:hover { background:#f6f7f8; }
+
+/* ==== NAV polishing to match original one-pager look ==== */
+
+/* Lighter brand background (adjust to taste) */
+:root{
+  /* original was quite dark; this is a softer teal/blue to match your hero visuals */
+  --brand: #1a3242;        /* try #143142 for darker, #24495f for lighter */
+  --brand-ink: #ffffff;    /* links in nav should be light */
+}
+
+/* Reduce bar height (padding) and ensure vertical centering */
+.site-nav{
+  background: var(--brand);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Keep the nav the same width as the content column */
+.site-nav .content-wrapper{
+  display: flex;
+  align-items: center;       /* vertical center */
+  min-height: 48px;          /* target height; adjust to 44–56px range */
+  padding: 6px 0;            /* reduce vertical padding */
+}
+
+/* Horizontal list */
+.site-nav .nav-list{
+  list-style: none;
+  display: flex;
+  gap: 20px;                  /* tighter spacing */
+  margin: 0;
+  padding: 0;                 /* we move padding to .content-wrapper above */
+}
+
+/* Items and links */
+.site-nav .nav-item{ display: block; }
+.site-nav a{
+  color: var(--brand-ink) !important;   /* ensure white text */
+  text-decoration: none;
+  font-size: 15px;                       /* slightly larger than 14px */
+  line-height: 1;                        /* avoid adding vertical space */
+  opacity: .92;
+}
+.site-nav a:hover,
+.site-nav .active > a{
+  opacity: 1;
+  text-decoration: underline;            /* clear hover/active affordance */
+}
 */
