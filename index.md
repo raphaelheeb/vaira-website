@@ -4,11 +4,6 @@ title: Home
 permalink: /
 ---
 
-<!-- HEADER -->
-<header class="site-header">
-  {{ 
-</header>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid hero-split">
@@ -20,7 +15,7 @@ permalink: /
         We support organizations at the intersection of innovation, technology, and advanced manufacturing.
       </p>
       <div class="hero-ctas">
-        mailto:info@vaira-advisory.comGet in Touch</a>
+        <a href="mailto:info@vaira-advisory.com" class="btn-primary">Get in Touch</a>
       </div>
     </div>
 
@@ -103,3 +98,8 @@ permalink: /
           <path class="c" d="M180 180 C160 260, 160 360, 180 440" />
           <path class="c" d="M240 160 C220 250, 220 370, 240 460" />
           <path class="c" d="M300 150 C280 250, 280 380, 300 480" />
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
